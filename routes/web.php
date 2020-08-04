@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'FrontendController@home')->name('home');
+
+Route::get('itemdetail/{item}', 'FrontendController@itemdetail')->name('itemdetail');
+
+Route::get('cart', 'FrontendController@cart')->name('cart');
+
+Route::get('dashboard', 'BackendController@dashboard') -> name('dashboard');
+
+Route::resource('items', 'ItemController');
+
+Route::resource('subcategories', 'SubcategoryController');
+
+
