@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>OS - @yield('title')</title>
 
@@ -42,9 +43,9 @@
             <a class="nav-link" href="#">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ route('cart') }}">
               <i class="fas fa-cart-plus"></i>
-              <span class="badge badge-pill bg-light text-danger">0</span>
+              <span id="show-cart-badge" class="badge badge-pill bg-light text-danger">0</span>
             </a>
           </li>
         </ul>

@@ -31,7 +31,8 @@
 							</tr>
 						</tbody>
 					</table>
-					<a href="#" data-id="{{ $item->id }}" data-name="{{ $item->name }}" data-price="{{$item->price}}" data-photo="{{$item->photo}}" class="btn btn-info btn-block mt-5 add-to-cart">Add To Cart</a>
+					
+					<button data-id="{{ $item->id }}" data-name="{{ $item->name }}" data-price="{{$item->price}}" data-photo="{{asset($item->photo)}}" class="btn btn-info btn-block mt-5 add-to-cart">Add To Cart</button>
 				</div>
 			</div>
 		</div>

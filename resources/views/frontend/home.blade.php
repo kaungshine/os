@@ -48,7 +48,7 @@
                 <a href="{{route('itemdetail',$item->id)}}" class="btn btn-primary btn-block">More Info</a>
               </div>
               <div class="col text-center">
-                <a href="#" class="btn btn-info btn-block">Add To Cart</a>
+                <button class="btn btn-info btn-block add-to-cart" data-id="{{ $item->id }}" data-name="{{ $item->name }}" data-price="{{$item->price}}" data-photo="{{asset($item->photo)}}">Add To Cart</button>
               </div> 
             </div>
             
@@ -61,4 +61,7 @@
     <!-- /.row -->
 
   </div>
+@endsection
+@section('script')
+  <script type="text/javascript" src="{{asset('frontendtemplate/js/custom.js')}}"></script>
 @endsection

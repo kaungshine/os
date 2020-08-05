@@ -5,7 +5,7 @@
 @section('content')
 	<div class="container">
 		<h4 class="my-4">Cart Page</h4>
-		<table class="table table-bordered">
+		<table id="cart-table-001" class="table table-bordered">
 			<thead>
 				<tr>
 					<th>Image</th>
@@ -16,20 +16,16 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>
-						<img src="" class="img-fluid">
-					</td>
-					<td>Item One</td>
-					<td>100</td>
-					<td>3</td>
-					<td>300</td>
-				</tr>
+
 			</tbody>
 		</table>
+		<a href="#" class="btn btn-success checkout">Checkout</a>
 	</div>
 @endsection
 
 @section('script')
+	<script type="text/javascript">
+		var url = "{{ route('checkout') }}";
+	</script>
 	<script type="text/javascript" src="{{asset('frontendtemplate/js/custom.js')}}"></script>
 @endsection
