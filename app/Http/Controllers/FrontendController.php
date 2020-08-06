@@ -5,9 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Item;
 use App\Order;
+use Illuminate\Support\Facades\Auth;
 
 class FrontendController extends Controller
 {
+    public function __construct($value='')
+    {
+        $this->middleware('auth')->only('checkout');
+    }
+
     public function home()
     {
     	$items = Item::orderBy('id', 'desc')->take(3)->get();
@@ -40,7 +46,7 @@ class FrontendController extends Controller
         $order->total = $total;
         $order->note = 'Note Here';
         $order->status = 0;
-        $order->user_id = 1; //auth id
+        $order->user_id = Auth::id(); //auth id
         $order->orderdate = now();
 
         $order->save();

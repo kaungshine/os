@@ -49,9 +49,9 @@
 </div>
 @endsection
 @section('custom-js')
+	<script src="/js/app.js"></script>
 	<script type="text/javascript" src="{{ asset('backendtemplate/jquery-confirm/jquery-confirm.min.js') }}">
 	</script>
-	<script src="/js/app.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function(){
 

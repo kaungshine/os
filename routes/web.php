@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', 'FrontendController@home')->name('home');
+Route::get('/', 'FrontendController@home')->name('homepage');
 
 Route::get('itemdetail/{item}', 'FrontendController@itemdetail')->name('itemdetail');
 
@@ -22,12 +22,28 @@ Route::get('cart', 'FrontendController@cart')->name('cart');
 
 Route::post('checkout', 'FrontendController@checkout')->name('checkout');
 
-Route::get('dashboard', 'BackendController@dashboard') -> name('dashboard');
+//route group //middleware
 
-Route::resource('items', 'ItemController');
+Route::middleware('auth')->group(function () {
 
-Route::resource('subcategories', 'SubcategoryController');
+	Route::get('dashboard', 'BackendController@dashboard') -> name('dashboard');
+
+	Route::resource('items', 'ItemController');
+
+	Route::resource('subcategories', 'SubcategoryController');
+
+	Route::resource('categories', 'CategoryController');
+
+	Route::resource('brands', 'BrandController');
+
+	Route::resource('orders', 'OrderController');
+
+});
 
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
